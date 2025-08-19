@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Notifications Aggregator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 min-h-screen flex flex-col items-center">
+
+    <!-- Main Container with Shadow and Rounded Corners -->
+    <div class="w-full max-w-7xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-10 mb-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">Income Tax India Updates</h1>
+            <p class="mt-2 text-lg md:text-xl text-gray-500">Your single source for the latest Notifications and Circulars.</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Latest Notifications Section -->
+            <section id="notifications-section" class="bg-blue-50 p-6 rounded-xl shadow-md">
+                <h2 class="text-2xl font-semibold text-blue-800 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                    Latest Notifications
+                </h2>
+                <ul id="notifications-list" class="space-y-4 text-gray-700">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300">
+                        <p class="font-medium" id="notif-132">Notification No. 132/2025: Amendment to Income-tax Rules, 2025</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 14 Aug 2025</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-blue-500 hover:text-blue-700 block">Read more...</a>
+                            <button onclick="getSummary('notif-132')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold hover:bg-blue-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300">
+                        <p class="font-medium" id="notif-130">Notification No. 130/2025: Income Tax exemption for certain trusts</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 07 Aug 2025</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-blue-500 hover:text-blue-700 block">Read more...</a>
+                            <button onclick="getSummary('notif-130')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold hover:bg-blue-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300">
+                        <p class="font-medium" id="notif-129">Notification No. 129/2025: Clarification on ITR-3 and ITR-4 forms</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 01 Aug 2025</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-blue-500 hover:text-blue-700 block">Read more...</a>
+                            <button onclick="getSummary('notif-129')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold hover:bg-blue-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Latest Circulars Section -->
+            <section id="circulars-section" class="bg-green-50 p-6 rounded-xl shadow-md">
+                <h2 class="text-2xl font-semibold text-green-800 mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                    Latest Circulars
+                </h2>
+                <ul id="circulars-list" class="space-y-4 text-gray-700">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300">
+                        <p class="font-medium" id="circ-10">Circular No. 10/2025: Relaxation for electronic return processing</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 28 Jul 2025</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-green-500 hover:text-green-700 block">Read more...</a>
+                            <button onclick="getSummary('circ-10')" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold hover:bg-green-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300">
+                        <p class="font-medium" id="circ-9">Circular No. 9/2025: Modification of rules regarding PAN becoming inoperative</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 21 Jul 2025</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-green-500 hover:text-green-700 block">Read more...</a>
+                            <button onclick="getSummary('circ-9')" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold hover:bg-green-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300">
+                        <p class="font-medium" id="circ-8">Circular No. 8/2025: Clarification on waiver of interest in certain cases</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 01 Jul 2025</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-green-500 hover:text-green-700 block">Read more...</a>
+                            <button onclick="getSummary('circ-8')" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold hover:bg-green-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- AI Summary Modal (hidden by default) -->
+    <div id="summary-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">AI Summary</h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-3xl font-bold">&times;</button>
+            </div>
+            <div id="summary-content" class="text-gray-700 prose max-w-none">
+                <!-- Summary will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer / Footer -->
+    <footer class="text-center text-sm text-gray-400 mt-4 max-w-7xl mx-auto">
+        <p>This is a conceptual design for a web portal. The data shown is for demonstration purposes only and is not live. In a real-world application, a backend process would be required to fetch and update this information dynamically.</p>
+    </footer>
+
+    <script>
+        // Mapping of document IDs to their mock content for the LLM prompt
+        const documentContent = {
+            'notif-132': `Subject: Amendment to Income-tax Rules, 2025.
+            MINISTRY OF FINANCE
+            (DEPARTMENT OF REVENUE)
+            (CENTRAL BOARD OF DIRECT TAXES)
+            NOTIFICATION
+            New Delhi, the 14th August, 2025
+            
+            G.S.R. 553(E).—In exercise of the powers conferred by section 295 of the Income-tax Act, 1961, the Central Board of Direct Taxes hereby makes the following rules further to amend the Income-tax Rules, 1962, namely:-
+            1. Short title and commencement.—(1) These rules may be called the Income-tax (Twentieth Amendment) Rules, 2025. (2) They shall come into force on the date of their publication in the Official Gazette.
+            2. In the Income-tax Rules, 1962, in rule 12, after sub-rule (5), the following sub-rule shall be inserted, namely:-
+            "(6) For the purposes of the First Proviso to sub-section (1) of section 139, the income-tax return in the forms as may be notified by the Board for the Assessment Year 2025-26 shall not be filed by any person, being a company, or a firm."
+            `,
+            'notif-130': `Subject: Income-tax exemption for certain trusts.
+            MINISTRY OF FINANCE
+            (DEPARTMENT OF REVENUE)
+            (CENTRAL BOARD OF DIRECT TAXES)
+            NOTIFICATION
+            New Delhi, the 7th August, 2025
+            
+            S.O. 3627(E).—In exercise of the powers conferred by clause (23C) of section 10 of the Income-tax Act, 1961, the Central Government hereby notifies the "Parambikulam Tiger Conservation Foundation" for the purpose of the said clause, subject to the condition that the said Foundation shall, for the assessment years commencing from the assessment year 2025-26 to the assessment year 2027-28, -
+            (i) apply its income or accumulate its income for application wholly and exclusively for the purposes for which it is established and in a manner specified in the said clause;
+            (ii) not distribute any part of its income to its members;
+            (iii) get its accounts audited and furnish the audit report.`,
+            'notif-129': `Subject: Clarification on ITR-3 and ITR-4 forms.
+            MINISTRY OF FINANCE
+            (DEPARTMENT OF REVENUE)
+            (CENTRAL BOARD OF DIRECT TAXES)
+            NOTIFICATION
+            New Delhi, the 1st August, 2025
+            
+            S.O. 3559(E).—In exercise of the powers conferred by section 119 of the Income-tax Act, 1961, the Central Board of Direct Taxes hereby issues the following clarifications for removal of doubts regarding the applicability of ITR-3 and ITR-4 forms for the Assessment Year 2025-26:-
+            1. The Board has received several representations from taxpayers seeking clarification on the correct form to be filed for taxpayers having income from business or profession.
+            2. It is hereby clarified that the existing provisions of the Act and the Income-tax Rules, 1962, as applicable for the Assessment Year 2025-26, remain unchanged. Taxpayers are advised to refer to the official instructions provided with the forms to determine their eligibility for filing ITR-3 or ITR-4.`,
+            'circ-10': `Subject: Relaxation of time limit for processing of returns of income filed electronically which were incorrectly invalidated by CPC.
+            GOVERNMENT OF INDIA
+            MINISTRY OF FINANCE
+            DEPARTMENT OF REVENUE
+            CENTRAL BOARD OF DIRECT TAXES
+            Circular No. 10/2025
+            
+            North Block, the 28th July, 2025
+            
+            The Central Board of Direct Taxes (CBDT) has received representations regarding the difficulties faced by taxpayers whose electronically filed returns of income were incorrectly invalidated by the Centralised Processing Centre (CPC). This has led to a situation where the returns could not be processed, causing undue hardship to the taxpayers.
+            
+            In view of the above, and in exercise of the powers conferred under section 119 of the Income-tax Act, 1961, the CBDT hereby relaxes the time limit for processing of such returns. The returns which were invalidated on or after 1st January, 2025, and before the date of this Circular, shall be deemed to be validly filed and shall be processed by the CPC by 31st December, 2025. This relaxation is subject to the condition that the taxpayer provides the necessary rectifications as may be required by the CPC within the specified time.`,
+            'circ-9': `Subject: Partial Modification of Circular No.3 of 2023 dated 28-3-2023 regarding consequences of pan becoming inoperative as per Rule 114AAA of the Income-tax Rules, 1962.
+            GOVERNMENT OF INDIA
+            MINISTRY OF FINANCE
+            DEPARTMENT OF REVENUE
+            CENTRAL BOARD OF DIRECT TAXES
+            Circular No. 9/2025
+            
+            North Block, the 21st July, 2025
+            
+            The Central Board of Direct Taxes (CBDT) has issued this Circular to partially modify its earlier Circular No. 3 of 2023. The earlier circular dealt with the consequences of a Permanent Account Number (PAN) becoming inoperative due to non-linking with Aadhaar as per Rule 114AAA.
+            
+            This new Circular clarifies that for the purpose of sub-section (3) of section 139A of the Income-tax Act, 1961, the PAN of a person who has not linked it with Aadhaar shall be considered inoperative. However, for the purpose of the provisions of sub-section (1) and sub-section (2) of section 139A, the PAN shall not be considered inoperative if the person has a valid Aadhaar and has already applied for the PAN-Aadhaar linkage, but the process is pending for reasons attributable to the department.`,
+            'circ-8': `Subject: Clarification regarding CBDT's Circular No. 5/2025 dated 28.03.2025 for waiver on levy of interest under section 201(1A)(ii)/ 206C(7) of the Income-tax Act, 1961, as the case may be, in specific cases.
+            GOVERNMENT OF INDIA
+            MINISTRY OF FINANCE
+            DEPARTMENT OF REVENUE
+            CENTRAL BOARD OF DIRECT TAXES
+            Circular No. 8/2025
+            
+            North Block, the 1st July, 2025
+            
+            This Circular provides a clarification to Circular No. 5/2025 issued by the Central Board of Direct Taxes (CBDT). The previous Circular provided for a waiver of interest on a levy under section 201(1A)(ii) and section 206C(7) in specific cases.
+            
+            The present Circular clarifies that the waiver of interest is applicable only in cases where the failure to deduct or collect tax at source was due to genuine hardship and not due to a wilful default on the part of the deductor or collector. The genuine hardship criteria will be determined by the Assessing Officer on a case-by-case basis after considering all relevant facts and circumstances.
+            
+            This clarification aims to ensure that the relief is provided only to deserving cases and to prevent misuse of the previous Circular's provisions.`
+        };
+
+        // This function will be called when an AI Summary button is clicked.
+        async function getSummary(docId) {
+            const documentTitle = document.getElementById(docId).textContent;
+            const documentText = documentContent[docId];
+            
+            const modal = document.getElementById('summary-modal');
+            const summaryContent = document.getElementById('summary-content');
+
+            // Show the modal and a loading indicator
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            summaryContent.innerHTML = '<div class="text-center py-8"><div class="animate-spin rounded-full h-12 w-12 border-4 border-t-blue-500 border-gray-200 mx-auto"></div><p class="mt-4 text-gray-500">Generating summary...</p></div>';
+
+            const prompt = `You are a helpful assistant for Chartered Accountants in India. Your task is to provide a concise, easy-to-understand summary of an Indian Income Tax notification or circular. Highlight the key changes, their implications, and who they affect. Use simple, professional language.
+
+            Here is the document to summarize:
+            
+            Title: "${documentTitle}"
+            Content: "${documentText}"
+            
+            Please provide the summary in a paragraph or a few short, key points.`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = "" 
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            let retryCount = 0;
+            const maxRetries = 5;
+            let response;
+
+            while (retryCount < maxRetries) {
+                try {
+                    response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.status === 429) { // Too Many Requests
+                        const delay = Math.pow(2, retryCount) * 1000;
+                        console.log(`Rate limit exceeded. Retrying in ${delay / 1000} seconds...`);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        retryCount++;
+                    } else {
+                        break; // Success, exit the loop
+                    }
+                } catch (error) {
+                    summaryContent.innerHTML = `<p class="text-red-500">An error occurred while fetching the summary. Please try again later.</p>`;
+                    console.error('API call failed:', error);
+                    return;
+                }
+            }
+            
+            if (!response || response.status === 429) {
+                summaryContent.innerHTML = `<p class="text-red-500">Failed to get a response after multiple retries. Please try again later.</p>`;
+                console.error('API call failed after max retries.');
+                return;
+            }
+
+            try {
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    summaryContent.innerHTML = `<p>${text}</p>`;
+                } else {
+                    summaryContent.innerHTML = `<p class="text-red-500">No summary was generated. The content might be too complex or an error occurred.</p>`;
+                }
+            } catch (error) {
+                summaryContent.innerHTML = `<p class="text-red-500">An error occurred while processing the response.</p>`;
+                console.error('Response processing failed:', error);
+            }
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('summary-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
