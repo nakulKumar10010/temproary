@@ -22,6 +22,21 @@
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800">Income Tax India Updates</h1>
             <p class="mt-2 text-lg md:text-xl text-gray-500">Your single source for the latest Notifications and Circulars.</p>
         </header>
+        
+        <!-- Search and Filter Section -->
+        <div class="mb-8 flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <input type="text" id="search-input" onkeyup="filterContent()" placeholder="Search notifications or circulars..." class="w-full sm:w-2/3 p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm">
+            
+            <div class="flex items-center space-x-2 w-full sm:w-1/3">
+                <label for="year-filter" class="text-gray-600 font-medium whitespace-nowrap">Filter by Year:</label>
+                <select id="year-filter" onchange="filterContent()" class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 shadow-sm">
+                    <option value="all">All Years</option>
+                    <option value="2025" selected>2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+        </div>
 
         <!-- Main Content Grid -->
         <main class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -35,7 +50,7 @@
                     Latest Notifications
                 </h2>
                 <ul id="notifications-list" class="space-y-4 text-gray-700">
-                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2025" data-content="Notification No. 132/2025: Amendment to Income-tax Rules, 2025">
                         <p class="font-medium" id="notif-132">Notification No. 132/2025: Amendment to Income-tax Rules, 2025</p>
                         <p class="text-sm text-gray-500 mt-1">Published: 14 Aug 2025</p>
                         <div class="flex items-center space-x-2 mt-2">
@@ -43,7 +58,7 @@
                             <button onclick="getSummary('notif-132')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold hover:bg-blue-200 transition-colors duration-200">✨ AI Summary</button>
                         </div>
                     </li>
-                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2025" data-content="Notification No. 130/2025: Income Tax exemption for certain trusts">
                         <p class="font-medium" id="notif-130">Notification No. 130/2025: Income Tax exemption for certain trusts</p>
                         <p class="text-sm text-gray-500 mt-1">Published: 07 Aug 2025</p>
                         <div class="flex items-center space-x-2 mt-2">
@@ -51,12 +66,20 @@
                             <button onclick="getSummary('notif-130')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold hover:bg-blue-200 transition-colors duration-200">✨ AI Summary</button>
                         </div>
                     </li>
-                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2025" data-content="Notification No. 129/2025: Clarification on ITR-3 and ITR-4 forms">
                         <p class="font-medium" id="notif-129">Notification No. 129/2025: Clarification on ITR-3 and ITR-4 forms</p>
                         <p class="text-sm text-gray-500 mt-1">Published: 01 Aug 2025</p>
                         <div class="flex items-center space-x-2 mt-2">
                             <a href="#" class="text-xs text-blue-500 hover:text-blue-700 block">Read more...</a>
                             <button onclick="getSummary('notif-129')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold hover:bg-blue-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2024" data-content="Notification No. 10/2024: New provisions for TDS on cryptocurrency">
+                        <p class="font-medium" id="notif-10-2024">Notification No. 10/2024: New provisions for TDS on cryptocurrency</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 20 Mar 2024</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-blue-500 hover:text-blue-700 block">Read more...</a>
+                            <button onclick="getSummary('notif-10-2024')" class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-bold hover:bg-blue-200 transition-colors duration-200">✨ AI Summary</button>
                         </div>
                     </li>
                 </ul>
@@ -71,7 +94,7 @@
                     Latest Circulars
                 </h2>
                 <ul id="circulars-list" class="space-y-4 text-gray-700">
-                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2025" data-content="Circular No. 10/2025: Relaxation for electronic return processing">
                         <p class="font-medium" id="circ-10">Circular No. 10/2025: Relaxation for electronic return processing</p>
                         <p class="text-sm text-gray-500 mt-1">Published: 28 Jul 2025</p>
                         <div class="flex items-center space-x-2 mt-2">
@@ -79,7 +102,7 @@
                             <button onclick="getSummary('circ-10')" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold hover:bg-green-200 transition-colors duration-200">✨ AI Summary</button>
                         </div>
                     </li>
-                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2025" data-content="Circular No. 9/2025: Modification of rules regarding PAN becoming inoperative">
                         <p class="font-medium" id="circ-9">Circular No. 9/2025: Modification of rules regarding PAN becoming inoperative</p>
                         <p class="text-sm text-gray-500 mt-1">Published: 21 Jul 2025</p>
                         <div class="flex items-center space-x-2 mt-2">
@@ -87,12 +110,20 @@
                             <button onclick="getSummary('circ-9')" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold hover:bg-green-200 transition-colors duration-200">✨ AI Summary</button>
                         </div>
                     </li>
-                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300">
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2025" data-content="Circular No. 8/2025: Clarification on waiver of interest in certain cases">
                         <p class="font-medium" id="circ-8">Circular No. 8/2025: Clarification on waiver of interest in certain cases</p>
                         <p class="text-sm text-gray-500 mt-1">Published: 01 Jul 2025</p>
                         <div class="flex items-center space-x-2 mt-2">
                             <a href="#" class="text-xs text-green-500 hover:text-green-700 block">Read more...</a>
                             <button onclick="getSummary('circ-8')" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold hover:bg-green-200 transition-colors duration-200">✨ AI Summary</button>
+                        </div>
+                    </li>
+                    <li class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-300 document-item" data-year="2024" data-content="Circular No. 5/2024: Regarding consequences of PAN becoming inoperative">
+                        <p class="font-medium" id="circ-5-2024">Circular No. 5/2024: Regarding consequences of PAN becoming inoperative</p>
+                        <p class="text-sm text-gray-500 mt-1">Published: 28 Mar 2024</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <a href="#" class="text-xs text-green-500 hover:text-green-700 block">Read more...</a>
+                            <button onclick="getSummary('circ-5-2024')" class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full font-bold hover:bg-green-200 transition-colors duration-200">✨ AI Summary</button>
                         </div>
                     </li>
                 </ul>
@@ -154,6 +185,19 @@
             S.O. 3559(E).—In exercise of the powers conferred by section 119 of the Income-tax Act, 1961, the Central Board of Direct Taxes hereby issues the following clarifications for removal of doubts regarding the applicability of ITR-3 and ITR-4 forms for the Assessment Year 2025-26:-
             1. The Board has received several representations from taxpayers seeking clarification on the correct form to be filed for taxpayers having income from business or profession.
             2. It is hereby clarified that the existing provisions of the Act and the Income-tax Rules, 1962, as applicable for the Assessment Year 2025-26, remain unchanged. Taxpayers are advised to refer to the official instructions provided with the forms to determine their eligibility for filing ITR-3 or ITR-4.`,
+            'notif-10-2024': `Subject: New provisions for TDS on cryptocurrency.
+            MINISTRY OF FINANCE
+            (DEPARTMENT OF REVENUE)
+            (CENTRAL BOARD OF DIRECT TAXES)
+            NOTIFICATION
+            New Delhi, the 20th March, 2024
+            
+            G.S.R. 513(E).—In exercise of the powers conferred by sub-section (1) of section 194S of the Income-tax Act, 1961, the Central Board of Direct Taxes hereby makes the following rules to provide for the deduction of tax at source on the transfer of a Virtual Digital Asset (VDA).
+            
+            1. Short title and commencement.—(1) These rules may be called the Income-tax (Second Amendment) Rules, 2024. (2) They shall come into force on the date of their publication in the Official Gazette.
+            
+            2. In the Income-tax Rules, 1962, after rule 114G, the following rule shall be inserted, namely:-
+            "114H. Deduction of tax at source on transfer of Virtual Digital Asset.—(1) The person responsible for paying to any resident any sum by way of consideration for transfer of a VDA shall, at the time of credit of such sum to the account of the payee or at the time of payment thereof, deduct an amount equal to one per cent of such sum as income-tax."`,
             'circ-10': `Subject: Relaxation of time limit for processing of returns of income filed electronically which were incorrectly invalidated by CPC.
             GOVERNMENT OF INDIA
             MINISTRY OF FINANCE
@@ -191,7 +235,19 @@
             
             The present Circular clarifies that the waiver of interest is applicable only in cases where the failure to deduct or collect tax at source was due to genuine hardship and not due to a wilful default on the part of the deductor or collector. The genuine hardship criteria will be determined by the Assessing Officer on a case-by-case basis after considering all relevant facts and circumstances.
             
-            This clarification aims to ensure that the relief is provided only to deserving cases and to prevent misuse of the previous Circular's provisions.`
+            This clarification aims to ensure that the relief is provided only to deserving cases and to prevent misuse of the previous Circular's provisions.`,
+            'circ-5-2024': `Subject: Regarding consequences of PAN becoming inoperative.
+            GOVERNMENT OF INDIA
+            MINISTRY OF FINANCE
+            DEPARTMENT OF REVENUE
+            CENTRAL BOARD OF DIRECT TAXES
+            Circular No. 5/2024
+            
+            North Block, the 28th March, 2024
+            
+            The Central Board of Direct Taxes (CBDT) has received representations regarding the difficulties faced by taxpayers whose Permanent Account Number (PAN) has become inoperative due to non-linking with Aadhaar.
+            
+            In order to mitigate the genuine hardship being faced by taxpayers, the Board, in exercise of its powers under section 119 of the Income-tax Act, 1961, hereby clarifies that for the purposes of the provisions of the Act, if a person has a valid Aadhaar and has applied for the linkage, the PAN of such person shall not be considered inoperative from the date of such application until the completion of the linkage process.`
         };
 
         // This function will be called when an AI Summary button is clicked.
@@ -207,14 +263,26 @@
             modal.classList.add('flex');
             summaryContent.innerHTML = '<div class="text-center py-8"><div class="animate-spin rounded-full h-12 w-12 border-4 border-t-blue-500 border-gray-200 mx-auto"></div><p class="mt-4 text-gray-500">Generating summary...</p></div>';
 
-            const prompt = `You are a helpful assistant for Chartered Accountants in India. Your task is to provide a concise, easy-to-understand summary of an Indian Income Tax notification or circular. Highlight the key changes, their implications, and who they affect. Use simple, professional language.
+            const prompt = `You are a helpful assistant for Chartered Accountants in India. Your task is to provide a concise, easy-to-understand summary of an Indian Income Tax notification or circular. Present the summary with clear headings and bullet points for readability. Highlight the key changes, their implications, and who they affect. Use simple, professional language.
 
             Here is the document to summarize:
             
             Title: "${documentTitle}"
             Content: "${documentText}"
             
-            Please provide the summary in a paragraph or a few short, key points.`;
+            Please provide the summary in the following format:
+            
+            ### Key Highlights
+            * ...
+            * ...
+            
+            ### Implications
+            * ...
+            * ...
+            
+            ### Who is Affected?
+            * ...
+            * ...`;
 
             let chatHistory = [];
             chatHistory.push({ role: "user", parts: [{ text: prompt }] });
@@ -260,7 +328,15 @@
                 const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
 
                 if (text) {
-                    summaryContent.innerHTML = `<p>${text}</p>`;
+                    // Replace Markdown headings and bold text with HTML tags
+                    const formattedText = text
+                        .replace(/### (.*)/g, '<h4 class="text-lg font-bold mt-4 mb-2">$1</h4>')
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\* /g, '<li class="ml-4 list-disc">')
+                        .replace(/<\/li>\n/g, '</li>')
+                        .replace(/<\/li>$/, '</li></ul>');
+
+                    summaryContent.innerHTML = formattedText;
                 } else {
                     summaryContent.innerHTML = `<p class="text-red-500">No summary was generated. The content might be too complex or an error occurred.</p>`;
                 }
@@ -275,6 +351,27 @@
             const modal = document.getElementById('summary-modal');
             modal.classList.remove('flex');
             modal.classList.add('hidden');
+        }
+
+        // Function to filter content based on search and year
+        function filterContent() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const selectedYear = document.getElementById('year-filter').value;
+            const documentItems = document.querySelectorAll('.document-item');
+
+            documentItems.forEach(item => {
+                const itemContent = item.getAttribute('data-content').toLowerCase();
+                const itemYear = item.getAttribute('data-year');
+                
+                const matchesSearch = itemContent.includes(searchTerm);
+                const matchesYear = (selectedYear === 'all' || itemYear === selectedYear);
+
+                if (matchesSearch && matchesYear) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         }
     </script>
 
